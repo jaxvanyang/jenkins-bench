@@ -1,2 +1,0 @@
-https://github.com/nfinit/ansibench/archive/aa1fd2d.tar.gz
-https://mirrors.aliyun.com/gnu/make/make-4.4.tar.gz
