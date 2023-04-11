@@ -3,5 +3,5 @@
 *.gz
 *.zip
 
-# ignore work dirs, i.e. subsubdirs
-*/*/
+# ignore work dirs, i.e. subdirs
+*/
