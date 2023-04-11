@@ -14,6 +14,13 @@ pipeline {
 				sh 'tar xf "${ARCHIVE}" -C .'
 			}
 		}
+		stage('Configure') {
+			steps {
+				dir(env.DIR) {
+					sh './configure'
+				}
+			}
+		}
 		stage('Clean Old Build') {
 			steps {
 				dir(env.DIR) {
