@@ -19,6 +19,11 @@ pipeline {
 				stages {
 					stage('Prepare') {
 						steps {
+							script {
+								if (env.AGENT == 'fx50j-arch') {
+									env.ARCHIVE = '/home/jax/Public/resources/make-4.4.tar.gz'
+								}
+							}
 							sh 'tar xf "${ARCHIVE}" -C .'
 						}
 					}
