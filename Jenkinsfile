@@ -14,19 +14,23 @@ pipeline {
 				sh 'tar xf "${ARCHIVE}" -C .'
 			}
 		}
-		dir(env.DIR) {
-			stage('Clean Old Build') {
-				steps {
+		stage('Clean Old Build') {
+			steps {
+				dir(env.DIR) {
 					sh 'make clean'
 				}
 			}
-			stage('Build') {
-				steps {
+		}
+		stage('Build') {
+			steps {
+				dir(env.DIR) {
 					sh 'make'
 				}
 			}
-			stage('Test') {
-				steps {
+		}
+		stage('Test') {
+			steps {
+				dir(env.DIR) {
 					sh 'make check'
 				}
 			}
