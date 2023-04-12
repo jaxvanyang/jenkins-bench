@@ -13,7 +13,7 @@ pipeline {
 				axes {
 					axis {
 						name 'AGENT'
-						values 'fx50j-arch', 'amd64-sid-agent'
+						values 'fx50j-arch', 'amd64-sid-agent', 'riscv64-sid-agent'
 					}
 				}
 				stages {
@@ -30,6 +30,7 @@ pipeline {
 					}
 					stage('Configure') {
 						steps {
+							echo "${AGENT}"
 							dir(env.DIR) {
 								sh './configure'
 							}
@@ -37,6 +38,7 @@ pipeline {
 					}
 					stage('Clean Old Build') {
 						steps {
+							echo "${AGENT}"
 							dir(env.DIR) {
 								sh 'make clean'
 							}
@@ -44,6 +46,7 @@ pipeline {
 					}
 					stage('Build') {
 						steps {
+							echo "${AGENT}"
 							dir(env.DIR) {
 								sh 'make'
 							}
@@ -51,6 +54,7 @@ pipeline {
 					}
 					stage('Test') {
 						steps {
+							echo "${AGENT}"
 							dir(env.DIR) {
 								sh 'make check'
 							}
