@@ -13,14 +13,14 @@ pipeline {
 				axes {
 					axis {
 						name 'AGENT'
-						values 'fx50j-arch', 'amd64-sid-agent', 'riscv64-sid-agent'
+						values 'built-in', 'amd64-sid-agent', 'riscv64-sid-agent'
 					}
 				}
 				stages {
 					stage('Prepare') {
 						steps {
 							script {
-								if (env.AGENT == 'fx50j-arch') {
+								if (env.AGENT == 'built-in') {
 									sh 'tar xf "/home/jax/Public/resources/make-4.4.tar.gz" -C .'
 								} else {
 									sh 'tar xf "${ARCHIVE}" -C .'
