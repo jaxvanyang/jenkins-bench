@@ -1,5 +1,11 @@
 pipeline {
 	agent none
+	options {
+		disableConcurrentBuilds()
+	}
+	triggers {
+		cron 'H * * * *'
+	}
 	environment {
 		ARCHIVE = '/resources/make-4.4.tar.gz'
 		DIR = 'make-4.4'
