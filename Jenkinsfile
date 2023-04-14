@@ -19,13 +19,7 @@ pipeline {
 				stages {
 					stage('Prepare') {
 						steps {
-							script {
-								if (env.AGENT == 'built-in') {
-									sh 'tar xf "/home/jax/Public/resources/make-4.4.tar.gz" -C .'
-								} else {
-									sh 'tar xf "${ARCHIVE}" -C .'
-								}
-							}
+							sh 'tar xf "${ARCHIVE}" -C .'
 						}
 					}
 					stage('Configure') {
