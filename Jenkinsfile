@@ -4,7 +4,7 @@ pipeline {
 		disableConcurrentBuilds()
 	}
 	triggers {
-		cron 'H * * * *'
+		pollSCM 'H/15 * * * *'
 	}
 	environment {
 		ARCHIVE = '/resources/make-4.4.tar.gz'
