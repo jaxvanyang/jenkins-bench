@@ -1,2 +1,4 @@
 https://github.com/nfinit/ansibench/archive/aa1fd2d.tar.gz
+https://github.com/kdlucas/byte-unixbench/archive/a07fcc0.tar.gz
 https://mirrors.aliyun.com/gnu/make/make-4.4.tar.gz
+https://mirrors.aliyun.com/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.gz
