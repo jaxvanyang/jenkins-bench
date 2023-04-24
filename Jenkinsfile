@@ -32,7 +32,7 @@ pipeline {
 				stages {
 					stage('Prepare') {
 						steps {
-							sh 'tar xf "${ARCHIVE}" -C . "${DIR}/${SUBDIR}"'
+							sh 'tar xf "${ARCHIVE}" -C . --skip-old-files'
 						}
 					}
 					stage('Clean Old Build') {
