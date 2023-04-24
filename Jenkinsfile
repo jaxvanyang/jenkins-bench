@@ -4,7 +4,7 @@ pipeline {
 		disableConcurrentBuilds()
 	}
 	triggers {
-		pollSCM 'H/15 * * * *'
+		pollSCM 'H * * * *'
 	}
 	environment {
 		ARCHIVE = '/resources/ansibench-aa1fd2d0276483512f5af0c660a13e847968b4e8.tar.gz'
