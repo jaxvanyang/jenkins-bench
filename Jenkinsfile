@@ -14,7 +14,7 @@ pipeline {
 		stage('Sequential Matrix') {
 			matrix {
 				options {
-					lock('synchronous-matrix')
+					lock('benchmark-lock')
 				}
 				agent {
 					label "${AGENT}"
