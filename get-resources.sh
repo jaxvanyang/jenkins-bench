@@ -5,7 +5,7 @@
 
 set -e
 
-get-assets() {
+get-resources() {
 	wget --continue --content-disposition \
 		--input-file "$1" --directory-prefix "$2"
 }
@@ -39,7 +39,7 @@ main() {
 		error "Target directory ${target_dir} not found"
 	fi
 
-	get-assets "$1" "${target_dir}"
+	get-resources "$1" "${target_dir}"
 }
 
 main "$@"
