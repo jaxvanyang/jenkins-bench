@@ -11,8 +11,11 @@ pipeline {
 		DIR = 'make-4.4'
 	}
 	stages {
-		stage('Matrix') {
+		stage('Sequential Matrix') {
 			matrix {
+				options {
+					lock('synchronous-matrix')
+				}
 				agent {
 					label "${AGENT}"
 				}
