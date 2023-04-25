@@ -46,7 +46,8 @@ pipeline {
 					}
 					axis {
 						name 'SUBDIR'
-						values 'linpack', 'stream', 'whetstone', 'dhrystone', 'nbench', 'coremark', 'hint'
+						// coremark disabled because of long running
+						values 'linpack', 'stream', 'whetstone', 'dhrystone', 'nbench', 'hint'
 					}
 				}
 				stages {
