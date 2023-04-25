@@ -26,8 +26,9 @@ pipeline {
 					stage('Prepare') {
 						steps {
 							sh 'tar xf "${ARCHIVE}" -C .'
-							// fix whetstone link error
+							// fix whetstone & nbench link error
 							sh 'sed -i \'s/\\$(INPUT)$/\\$(INPUT) -lm/\' "${DIR}/whetstone/makefile"'
+							sh 'sed -i \'s/\\$(INPUT)$/\\$(INPUT) -lm/\' "${DIR}/nbench/makefile"'
 						}
 					}
 				}
