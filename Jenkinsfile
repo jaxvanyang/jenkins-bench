@@ -13,6 +13,9 @@ pipeline {
 	stages {
 		stage('Prepare Matrix') {
 			matrix {
+				options {
+					skipDefaultCheckout()
+				}
 				agent {
 					label "${AGENT}"
 				}
@@ -38,6 +41,7 @@ pipeline {
 			matrix {
 				options {
 					lock('benchmark-lock')
+					skipDefaultCheckout()
 				}
 				agent {
 					label "${AGENT}"
