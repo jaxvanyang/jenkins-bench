@@ -26,6 +26,8 @@ pipeline {
 					stage('Prepare') {
 						steps {
 							sh 'tar xf "${ARCHIVE}" -C .'
+							// fix whetstone link error
+							sh 'sed -i \'s/\\$(INPUT)$/\\$(INPUT) -lm/\' "${DIR}/whetstone/makefile"'
 						}
 					}
 				}
