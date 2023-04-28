@@ -11,10 +11,11 @@ pipeline {
 		DIR = 'make-4.4'
 	}
 	stages {
-		stage('Sequential Matrix') {
+		stage('Build Matrix') {
 			matrix {
 				options {
 					lock('benchmark-lock')
+					skipDefaultCheckout()
 				}
 				agent {
 					label "${AGENT}"
