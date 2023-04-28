@@ -7,7 +7,7 @@ pipeline {
 		pollSCM 'H/15 * * * *'
 	}
 	environment {
-		ARCHIVE = '/resources/make-4.4.tar.gz'
+		ARCHIVE = '/mnt/resources/make-4.4.tar.gz'
 		DIR = 'make-4.4'
 	}
 	stages {
