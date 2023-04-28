@@ -3,9 +3,9 @@ pipeline {
 	options {
 		disableConcurrentBuilds()
 	}
-	triggers {
-		pollSCM 'H * * * *'
-	}
+	// triggers {
+	// 	pollSCM 'H * * * *'
+	// }
 	environment {
 		ARCHIVE = '/mnt/resources/ansibench-aa1fd2d0276483512f5af0c660a13e847968b4e8.tar.gz'
 		DIR = 'ansibench-aa1fd2d0276483512f5af0c660a13e847968b4e8'
