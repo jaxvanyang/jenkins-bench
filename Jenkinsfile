@@ -3,9 +3,9 @@ pipeline {
 	options {
 		disableConcurrentBuilds()
 	}
-	triggers {
-		pollSCM 'H/15 * * * *'
-	}
+	// triggers {
+	// 	pollSCM 'H/15 * * * *'
+	// }
 	environment {
 		ARCHIVE = '/mnt/resources/make-4.4.tar.gz'
 		DIR = 'make-4.4'
