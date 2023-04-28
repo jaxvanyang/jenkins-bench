@@ -7,7 +7,7 @@ pipeline {
 		pollSCM 'H * * * *'
 	}
 	environment {
-		ARCHIVE = '/resources/ansibench-aa1fd2d0276483512f5af0c660a13e847968b4e8.tar.gz'
+		ARCHIVE = '/mnt/resources/ansibench-aa1fd2d0276483512f5af0c660a13e847968b4e8.tar.gz'
 		DIR = 'ansibench-aa1fd2d0276483512f5af0c660a13e847968b4e8'
 	}
 	stages {
