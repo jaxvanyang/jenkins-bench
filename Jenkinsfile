@@ -7,7 +7,6 @@ pipeline {
 	// 	pollSCM 'H/15 * * * *'
 	// }
 	environment {
-		RESOURCE_ROOT = 'http://172.17.0.1'
 		ARCHIVE = 'make-4.4.tar.gz'
 		DIR = 'make-4.4'
 	}
@@ -26,11 +25,37 @@ pipeline {
 						name 'AGENT'
 						values 'built-in', 'amd64-sid-agent', 'riscv64-sid-agent', 'arm64v8-sid-agent'
 					}
+					axis {
+						name 'RESOURCE_DOMAIN'
+						values 'localhost', '172.17.0.1'
+					}
+				}
+				excludes {
+					exclude {
+						axis {
+							name 'AGENT'
+							values 'built-in'
+						}
+						axis {
+							name 'RESOURCE_DOMAIN'
+							values '172.17.0.1'
+						}
+					}
+					exclude {
+						axis {
+							name 'AGENT'
+							values 'amd64-sid-agent', 'riscv64-sid-agent', 'arm64v8-sid-agent'
+						}
+						axis {
+							name 'RESOURCE_DOMAIN'
+							values 'localhost'
+						}
+					}
 				}
 				stages {
 					stage('Prepare') {
 						steps {
-							sh 'wget -qO- "${RESOURCE_ROOT}/${ARCHIVE}" | tar xz -C .'
+							sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${ARCHIVE}" | tar xz -C .'
 						}
 					}
 					stage('Configure') {
