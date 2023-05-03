@@ -7,7 +7,8 @@ pipeline {
 	// 	pollSCM 'H/15 * * * *'
 	// }
 	environment {
-		ARCHIVE = '/mnt/resources/make-4.4.tar.gz'
+		RESOURCE_ROOT = 'http://172.17.0.1'
+		ARCHIVE = 'make-4.4.tar.gz'
 		DIR = 'make-4.4'
 	}
 	stages {
@@ -29,7 +30,7 @@ pipeline {
 				stages {
 					stage('Prepare') {
 						steps {
-							sh 'tar xf "${ARCHIVE}" -C .'
+							sh 'wget -qO- "${RESOURCE_ROOT}/${ARCHIVE}" | tar xz -C .'
 						}
 					}
 					stage('Configure') {
