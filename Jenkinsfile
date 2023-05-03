@@ -14,7 +14,7 @@ pipeline {
 		stage('Build Matrix') {
 			matrix {
 				options {
-					lock('benchmark-lock')
+					// lock('benchmark-lock')
 					skipDefaultCheckout()
 				}
 				agent {
