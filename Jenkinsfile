@@ -7,9 +7,6 @@ pipeline {
 	// 	pollSCM 'H/15 * * * *'
 	// }
 	environment {
-		BUILT_IN_DOMAIN = 'localhost'
-		DOCKER_DOMAIN = '172.17.0.1'
-		LIBVIRT_DOMAIN = '192.168.122.1'
 		ARCHIVE = 'make-4.4.tar.gz'
 		DIR = 'make-4.4'
 	}
@@ -31,7 +28,7 @@ pipeline {
 					}
 					axis {
 						name 'RESOURCE_DOMAIN'
-						values "${BUILT_IN_DOMAIN}", "${DOCKER_DOMAIN}", "${LIBVIRT_DOMAIN}"
+						values 'localhost', '172.17.0.1', '192.168.122.1'
 					}
 				}
 				excludes {
@@ -42,7 +39,7 @@ pipeline {
 						}
 						axis {
 							name 'RESOURCE_DOMAIN'
-							values "${DOCKER_DOMAIN}", "${LIBVIRT_DOMAIN}"
+							values '172.17.0.1', '192.168.122.1'
 						}
 					}
 					exclude {
@@ -52,7 +49,7 @@ pipeline {
 						}
 						axis {
 							name 'RESOURCE_DOMAIN'
-							values "${BUILT_IN_DOMAIN}", "${LIBVIRT_DOMAIN}"
+							values 'localhost', '192.168.122.1'
 						}
 					}
 					exclude {
@@ -62,7 +59,7 @@ pipeline {
 						}
 						axis {
 							name 'RESOURCE_DOMAIN'
-							values "${BUILT_IN_DOMAIN}", "${DOCKER_DOMAIN}"
+							values 'localhost', '172.17.0.1'
 						}
 					}
 				}
