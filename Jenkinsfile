@@ -7,6 +7,9 @@ pipeline {
 	// 	pollSCM 'H/15 * * * *'
 	// }
 	environment {
+		BUILT_IN_DOMAIN = 'localhost'
+		DOCKER_DOMAIN = '172.17.0.1'
+		LIBVIRT_DOMAIN = '192.168.122.1'
 		ARCHIVE = 'make-4.4.tar.gz'
 		DIR = 'make-4.4'
 	}
@@ -23,11 +26,12 @@ pipeline {
 				axes {
 					axis {
 						name 'AGENT'
-						values 'built-in', 'amd64-sid-agent', 'riscv64-sid-agent', 'arm64v8-sid-agent'
+						values 'built-in', 'amd64-sid-agent', 'riscv64-sid-agent', 'arm64v8-sid-agent',
+							'amd64-sid-vm', 'arm64v8-sid-vm', 'riscv64-sid-vm'
 					}
 					axis {
 						name 'RESOURCE_DOMAIN'
-						values 'localhost', '172.17.0.1'
+						values "${BUILT_IN_DOMAIN}", "${DOCKER_DOMAIN}", "${LIBVIRT_DOMAIN}"
 					}
 				}
 				excludes {
@@ -38,7 +42,7 @@ pipeline {
 						}
 						axis {
 							name 'RESOURCE_DOMAIN'
-							values '172.17.0.1'
+							values "${DOCKER_DOMAIN}", "${LIBVIRT_DOMAIN}"
 						}
 					}
 					exclude {
@@ -48,7 +52,17 @@ pipeline {
 						}
 						axis {
 							name 'RESOURCE_DOMAIN'
-							values 'localhost'
+							values "${BUILT_IN_DOMAIN}", "${LIBVIRT_DOMAIN}"
+						}
+					}
+					exclude {
+						axis {
+							name 'AGENT'
+							values 'amd64-sid-vm', 'riscv64-sid-vm', 'arm64v8-sid-vm'
+						}
+						axis {
+							name 'RESOURCE_DOMAIN'
+							values "${BUILT_IN_DOMAIN}", "${DOCKER_DOMAIN}"
 						}
 					}
 				}
