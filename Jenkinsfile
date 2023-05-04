@@ -73,10 +73,10 @@ pipeline {
 						steps {
 							echo "${AGENT}"
 							dir(env.DIR) {
-								sh './configure'
+								sh './configure --disable-multilib'
 								// clean old build
 								sh 'make distclean'
-								sh './configure'
+								sh './configure --disable-multilib'
 							}
 						}
 					}
@@ -92,7 +92,8 @@ pipeline {
 						steps {
 							echo "${AGENT}"
 							dir(env.DIR) {
-								sh 'make -k check'
+								sh 'make -k check-gcc'
+								sh 'make -k check-g++'
 							}
 						}
 					}
