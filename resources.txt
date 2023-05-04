@@ -3,3 +3,4 @@ https://github.com/kdlucas/byte-unixbench/archive/a07fcc0.tar.gz
 https://mirrors.aliyun.com/gnu/make/make-4.4.tar.gz
 https://mirrors.aliyun.com/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.gz
 https://github.com/openjdk/jdk/archive/refs/tags/jdk-17-ga.tar.gz
+https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.8/src/apache-tomcat-10.1.8-src.tar.gz
