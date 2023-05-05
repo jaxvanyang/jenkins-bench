@@ -81,7 +81,8 @@ pipeline {
 						steps {
 							echo "${AGENT}"
 							dir(env.DIR) {
-								sh 'rm -rf objs'
+								sh 'make clean'
+								sh './configure'
 							}
 						}
 					}
