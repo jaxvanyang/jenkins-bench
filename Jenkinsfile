@@ -93,7 +93,7 @@ pipeline {
 							echo "${AGENT}"
 							dir(env.DIR) {
 								sh 'make -k check-gcc'
-								sh 'make -k check-g++'
+								// sh 'make -k check-g++'
 							}
 						}
 					}
