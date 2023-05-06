@@ -8,3 +8,5 @@ https://nginx.org/download/nginx-1.23.4.tar.gz
 https://mirrors.tuna.tsinghua.edu.cn/kernel/v6.x/linux-6.3.1.tar.gz
 https://ci.adoptium.net/view/Dependencies/job/dependency_pipeline/lastSuccessfulBuild/artifact/jtreg/jtreg-7.2+1.tar.gz
 https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz
+http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD
+http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD
