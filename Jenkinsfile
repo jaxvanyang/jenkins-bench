@@ -71,11 +71,11 @@ pipeline {
 					stage('Prepare') {
 						steps {
 							sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${ARCHIVE}" | tar xz -C .'
-							dir(env.DIR) {
-								sh 'mkdir -p third_party'
-								sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${JTREG_ARCHIVE}" | tar xz -C third_party'
-								sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${GTEST_ARCHIVE}" | tar xz -C third_party'
-							}
+							// dir(env.DIR) {
+							// 	sh 'mkdir -p third_party'
+							// 	sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${JTREG_ARCHIVE}" | tar xz -C third_party'
+							// 	sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${GTEST_ARCHIVE}" | tar xz -C third_party'
+							// }
 						}
 					}
 					stage('Configure') {
@@ -86,9 +86,7 @@ pipeline {
 									bash configure \
 										--disable-warnings-as-errors \
 										--with-num-cores=1 \
-										--with-memory-size=1024 \
-										--with-jtreg=third_party/jtreg \
-										--with-gtest=third_party/googletest-1.13.0
+										--with-memory-size=1024
 								'''
 							}
 						}
