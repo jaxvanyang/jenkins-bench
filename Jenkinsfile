@@ -13,6 +13,7 @@ pipeline {
 		JTREG_DIR = 'jtreg'
 		GTEST_ARCHIVE = 'googletest-1.13.0.tar.gz'
 		GTEST_DIR = 'googletest-1.13.0'
+		CONFIG_DIR = 'make/autoconf/build-aux'
 	}
 	stages {
 		stage('Build Matrix') {
@@ -82,6 +83,8 @@ pipeline {
 						steps {
 							echo "${AGENT}"
 							dir(env.DIR) {
+								sh 'wget -O "${CONFIG_DIR}/config.guess" "http://${RESOURCE_DOMAIN}/config.guess"'
+								sh 'wget -O "${CONFIG_DIR}/config.sub" "http://${RESOURCE_DOMAIN}/config.sub"'
 								sh '''
 									bash configure \
 										--disable-warnings-as-errors \
