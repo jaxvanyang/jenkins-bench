@@ -110,14 +110,15 @@ pipeline {
 							}
 						}
 					}
-					// stage('Test') {
-					// 	steps {
-					// 		echo "${AGENT}"
-					// 		dir(env.DIR) {
-					// 			sh 'make run-test-tier1'
-					// 		}
-					// 	}
-					// }
+					stage('Test') {
+						steps {
+							echo "${AGENT}"
+							dir(env.DIR) {
+								sh 'find build -path "*-release/jdk/bin/java" -exec {} --version \\;'
+								// sh 'make run-test-tier1'
+							}
+						}
+					}
 				}
 			}
 		}
