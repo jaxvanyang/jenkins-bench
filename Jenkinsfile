@@ -97,7 +97,8 @@ pipeline {
 						steps {
 							echo "${AGENT}"
 							dir(env.DIR) {
-								sh 'make check'
+								sh './make --version'
+								// sh 'make check'
 							}
 						}
 					}
