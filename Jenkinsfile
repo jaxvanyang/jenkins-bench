@@ -72,19 +72,19 @@ pipeline {
 					stage('Prepare') {
 						steps {
 							sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${ARCHIVE}" | tar xz -C .'
-							// dir(env.DIR) {
-							// 	sh 'mkdir -p third_party'
-							// 	sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${JTREG_ARCHIVE}" | tar xz -C third_party'
-							// 	sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${GTEST_ARCHIVE}" | tar xz -C third_party'
-							// }
+							dir(env.DIR) {
+								// sh 'mkdir -p third_party'
+								// sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${JTREG_ARCHIVE}" | tar xz -C third_party'
+								// sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${GTEST_ARCHIVE}" | tar xz -C third_party'
+								sh 'wget -O "${CONFIG_DIR}/config.guess" "http://${RESOURCE_DOMAIN}/config.guess"'
+								sh 'wget -O "${CONFIG_DIR}/config.sub" "http://${RESOURCE_DOMAIN}/config.sub"'
+							}
 						}
 					}
 					stage('Configure') {
 						steps {
 							echo "${AGENT}"
 							dir(env.DIR) {
-								sh 'wget -O "${CONFIG_DIR}/config.guess" "http://${RESOURCE_DOMAIN}/config.guess"'
-								sh 'wget -O "${CONFIG_DIR}/config.sub" "http://${RESOURCE_DOMAIN}/config.sub"'
 								sh '''
 									bash configure \
 										--disable-warnings-as-errors \
