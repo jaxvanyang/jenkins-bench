@@ -10,3 +10,4 @@ https://ci.adoptium.net/view/Dependencies/job/dependency_pipeline/lastSuccessful
 https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz
 http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD
 http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD
+https://github.com/openjdk/riscv-port-jdk17u/archive/refs/heads/riscv-port.tar.gz
