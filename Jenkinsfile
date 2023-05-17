@@ -72,6 +72,7 @@ pipeline {
 					stage('Prepare') {
 						steps {
 							sh 'wget -qO- "http://${RESOURCE_DOMAIN}/${ARCHIVE}" | tar xz -C .'
+							sh 'ulimit -c unlimited'
 						}
 					}
 					stage('Configure') {
