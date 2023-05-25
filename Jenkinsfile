@@ -93,7 +93,7 @@ pipeline {
 						name 'SUBDIR'
 						// disable hint & coremark because of long running
 						// disable nbench because of error
-						values 'linpack', 'stream', 'whetstone', 'dhrystone'
+						values 'linpack'
 					}
 				}
 				stages {
