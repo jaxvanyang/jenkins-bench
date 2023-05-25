@@ -86,7 +86,8 @@ pipeline {
 				axes {
 					axis {
 						name 'AGENT'
-						values 'built-in', 'amd64-sid-agent', 'riscv64-sid-agent', 'arm64v8-sid-agent'
+						values 'built-in', 'amd64-sid-agent', 'riscv64-sid-agent', 'arm64v8-sid-agent',
+							'amd64-sid-vm', 'arm64v8-sid-vm', 'riscv64-sid-vm'
 					}
 					axis {
 						name 'SUBDIR'
