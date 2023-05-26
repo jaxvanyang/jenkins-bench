@@ -20,7 +20,7 @@ pipeline {
 				axes {
 					axis {
 						name 'AGENT'
-						values 'amd64-sid-vm'
+						values 'riscv64-sid-vm'
 					}
 					axis {
 						name 'RESOURCE_DOMAIN'
